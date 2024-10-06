@@ -2,36 +2,42 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Aplicación SQLite</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Items</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <h1>Lista de Items</h1>
+    <div class="container">
+        <h1>Lista de Items</h1>
 
-    <!-- Mensajes Flash -->
-    {% with messages = get_flashed_messages(with_categories=true) %}
-      {% if messages %}
-        <ul>
-          {% for category, message in messages %}
-            <li class="{{ category }}">{{ message }}</li>
-          {% endfor %}
+        <!-- Mensajes Flash -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <ul class="flash-messages">
+              {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+
+        <ul class="item-list">
+            {% for item in items %}
+                <li class="item">
+                    {{ item.name }}
+                    <div class="item-actions">
+                        <a href="{{ url_for('edit_item', id=item.id) }}" class="edit-link">Editar</a>
+                        <a href="{{ url_for('delete_item', id=item.id) }}" class="delete-link">Borrar</a>
+                    </div>
+                </li>
+            {% endfor %}
         </ul>
-      {% endif %}
-    {% endwith %}
 
-    <ul>
-        {% for item in items %}
-            <li>
-                {{ item.name }}
-                <a href="{{ url_for('edit_item', id=item.id) }}">Editar</a>
-                <a href="{{ url_for('delete_item', id=item.id) }}">Borrar</a>
-            </li>
-        {% endfor %}
-    </ul>
-
-    <h2>Agregar un nuevo item</h2>
-    <form action="/add" method="post">
-        <input type="text" name="name" required>
-        <button type="submit">Agregar</button>
-    </form>
+        <h2>Agregar un nuevo item</h2>
+        <form action="/add" method="post" class="add-item-form">
+            <input type="text" name="name" required placeholder="Nombre del item">
+            <button type="submit">Agregar</button>
+        </form>
+    </div>
 </body>
 </html>

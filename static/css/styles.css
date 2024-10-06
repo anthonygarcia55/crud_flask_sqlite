@@ -1,0 +1,112 @@
+/* Estilo general */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8; /* Color de fondo suave */
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 600px; /* Ancho máximo para hacerlo más compacto */
+    margin: 50px auto; /* Centrar el contenedor verticalmente */
+    padding: 30px; /* Aumentar el padding para mayor espacio interno */
+    background-color: #ffffff; /* Fondo blanco para el contenedor */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    text-align: center; /* Centrar texto */
+}
+
+/* Encabezados */
+h1 {
+    color: #333; /* Color oscuro para el encabezado */
+    margin-bottom: 20px; /* Espaciado inferior */
+}
+
+/* Lista de Items */
+.item-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.item {
+    background: #f9f9f9; /* Color de fondo suave para los items */
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between; /* Espacio entre el texto y los enlaces */
+}
+
+/* Enlaces */
+.edit-link, .delete-link {
+    color: #007bff; /* Color azul */
+    text-decoration: none;
+}
+
+.edit-link:hover, .delete-link:hover {
+    text-decoration: underline; /* Subrayar al pasar el mouse */
+}
+
+/* Mensajes Flash */
+.flash-messages {
+    list-style-type: none;
+    padding: 0;
+}
+
+.flash-messages li {
+    margin-bottom: 10px;
+}
+
+.flash-success {
+    color: #28a745; /* Verde para mensajes de éxito */
+}
+
+.flash-error {
+    color: #dc3545; /* Rojo para mensajes de error */
+}
+
+/* Formulario Agregar/Editar Item */
+.add-item-form {
+    margin-top: 20px;
+}
+
+.add-item-form input[type="text"] {
+    padding: 12px; /* Aumentar el padding para mayor comodidad al escribir */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: calc(100% - 24px); /* Ajustar el ancho del input */
+}
+
+.add-item-form button {
+    background-color: #007bff; /* Azul brillante */
+    color: white;
+    border: none;
+    padding: 12px 20px; /* Aumentar el padding del botón */
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-item-form button:hover {
+    background-color: #0056b3; /* Azul más oscuro al pasar el mouse */
+}
+
+/* Enlace de regreso */
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #007bff; /* Color azul para el enlace */
+}
+
+.back-link:hover {
+    text-decoration: underline; /* Subrayar al pasar el mouse */
+}
+
+/* Responsividad */
+@media (max-width: 600px) {
+   .container {
+       margin: 20px; /* Menos margen en móviles para aprovechar espacio */
+       padding: 20px; /* Ajustar padding en móviles */
+   }
+}

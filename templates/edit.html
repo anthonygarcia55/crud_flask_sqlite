@@ -2,27 +2,31 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Item</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <h1>Editar Item</h1>
+    <div class="container">
+        <h1>Editar Item</h1>
 
-    <!-- Mensajes Flash -->
-    {% with messages = get_flashed_messages(with_categories=true) %}
-      {% if messages %}
-        <ul>
-          {% for category, message in messages %}
-            <li class="{{ category }}">{{ message }}</li>
-          {% endfor %}
-        </ul>
-      {% endif %}
-    {% endwith %}
+        <!-- Mensajes Flash -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <ul class="flash-messages">
+              {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
 
-    <form action="" method="post">
-        <input type="text" name="name" value="{{ item.name }}" required>
-        <button type="submit">Actualizar</button>
-    </form>
+        <form action="" method="post" class="add-item-form">
+            <input type="text" name="name" value="{{ item.name }}" required placeholder="Nombre del item">
+            <button type="submit">Actualizar</button>
+        </form>
 
-    <a href="{{ url_for('index') }}">Volver a la lista</a>
+        <a href="{{ url_for('index') }}" class="back-link">Volver a la lista</a>
+    </div>
 </body>
 </html>
