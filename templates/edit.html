@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Item</title>
+</head>
+<body>
+    <h1>Editar Item</h1>
+
+    <!-- Mensajes Flash -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul>
+          {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <form action="" method="post">
+        <input type="text" name="name" value="{{ item.name }}" required>
+        <button type="submit">Actualizar</button>
+    </form>
+
+    <a href="{{ url_for('index') }}">Volver a la lista</a>
+</body>
+</html>
